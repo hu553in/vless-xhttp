@@ -1,3 +1,3 @@
 # X
 
-The X is for XHTTP :)
+The X stands for XHTTP :)
