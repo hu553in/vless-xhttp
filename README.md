@@ -3,6 +3,8 @@
 > The X stands for XHTTP.<br>
 > XHTTP stands with us.
 
+---
+
 ## Overview
 
 This repository contains small Bash scripts for deploying and maintaining Xray `vless` + `xhttp` setups:
@@ -17,6 +19,8 @@ The scripts stay intentionally simple:
 - `-h` / `--help` prints supported overrides
 - installer scripts generate `UUID` automatically if it is not provided
 - `vless_xhttp_uuid.sh` auto-generates a UUID only for `add`
+
+---
 
 ## Quick start
 
@@ -76,6 +80,8 @@ If the public hostname cannot be inferred from Nginx config, pass `DOMAIN` expli
 DOMAIN=example.com ./vless_xhttp_uuid.sh show 11111111-1111-1111-1111-111111111111
 ```
 
+---
+
 ## Configuration
 
 All scripts use environment variables instead of CLI flags. Common overrides include:
@@ -96,8 +102,33 @@ To see the full override list for each script:
 ./vless_xhttp_uuid.sh --help
 ```
 
+---
+
 ## Notes
 
 - The scripts are meant to run directly on the target server.
 - They use standard Xray/nginx paths unless overridden through environment variables.
 - `vless_xhttp_uuid.sh` modifies the live Xray config and restarts the configured Xray service on `add`.
+
+---
+
+## 3X-UI stack
+
+A minimal Docker Compose setup for running `3X-UI` behind Caddy is included in `3x-ui/`:
+
+```bash
+cd 3x-ui
+docker compose up -d
+```
+
+Included files:
+
+- `3x-ui/docker-compose.yml` runs `3X-UI` and a Caddy reverse proxy.
+- `3x-ui/Caddyfile` serves the panel on `https://x.example.com:8443`.
+
+Before starting:
+
+- replace `x.example.com` in `3x-ui/Caddyfile` with your actual hostname
+- make sure ports `80`, `443`, and `8443` are available on the host
+- note that only container port `443` is published for `3X-UI` traffic in the current example
+- publish any other required inbound ports explicitly, or switch to `network_mode: host`
