@@ -15,8 +15,6 @@ The scripts stay intentionally simple:
 - installer scripts generate `UUID` automatically if it is not provided
 - `vless_xhttp_uuid.sh` auto-generates a UUID only for `add`
 
----
-
 ## Quick start
 
 ### Nginx + TLS
@@ -75,8 +73,6 @@ If the public hostname cannot be inferred from Nginx config, pass `DOMAIN` expli
 DOMAIN=example.com ./vless_xhttp_uuid.sh show 11111111-1111-1111-1111-111111111111
 ```
 
----
-
 ## Configuration
 
 All scripts use environment variables instead of CLI flags. Common overrides include:
@@ -96,8 +92,6 @@ To see the full override list for each script:
 ./vless_xhttp_reality.sh --help
 ./vless_xhttp_uuid.sh --help
 ```
-
----
 
 ## Notes
 
