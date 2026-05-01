@@ -2,18 +2,18 @@
 
 ## Overview
 
-This repository contains small Bash scripts for deploying and maintaining Xray `vless` + `xhttp` setups:
+Bash scripts for Xray `vless` + `xhttp` setups:
 
-- `vless_xhttp_nginx.sh` deploys Xray behind nginx with TLS.
+- `vless_xhttp_nginx.sh` deploys Xray behind Nginx with TLS.
 - `vless_xhttp_reality.sh` deploys Xray with Reality.
-- `vless_xhttp_uuid.sh` adds new client UUIDs and prints links / QR codes for existing ones.
+- `vless_xhttp_uuid.sh` adds new client UUIDs and prints links and QR codes for existing ones.
 
-The scripts stay intentionally simple:
+Script behavior:
 
-- configuration is done through environment variables
-- `-h` / `--help` prints supported overrides
-- installer scripts generate `UUID` automatically if it is not provided
-- `vless_xhttp_uuid.sh` auto-generates a UUID only for `add`
+- Scripts are configured through environment variables.
+- `-h` or `--help` prints supported overrides.
+- Installer scripts generate `UUID` automatically if it is not provided.
+- `vless_xhttp_uuid.sh` auto-generates a UUID only for `add`.
 
 ## Quick start
 
@@ -95,6 +95,6 @@ To see the full override list for each script:
 
 ## Notes
 
-- The scripts are meant to run directly on the target server.
-- They use standard Xray/nginx paths unless overridden through environment variables.
+- Run the scripts directly on the target server.
+- They use standard Xray and Nginx paths unless overridden through environment variables.
 - `vless_xhttp_uuid.sh` modifies the live Xray config and restarts the configured Xray service on `add`.
